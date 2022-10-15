@@ -26,6 +26,9 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 * Canavial comum;
 * Horário: entardecer;
 * Inimigos normais: cachorro do mato, preá.
+>* 1° Plano: chão;
+>* 2° Plano: canas;
+>* 3° Plano: céu + sol entardecer.
 
 ## Boss
 
@@ -49,10 +52,11 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 ## Cenário
 
 * Mata fechada;
-* Horário: noite.
-* 1° Plano: chão
-* 2° Plano: canas
-* 3° Plano: céu + sol entardecer
+* Horário: noite;
+>* 1° Plano: chão;
+>* 2° Plano: grama alta;
+>* 3° Plano: árvores;
+>* 4° Plano: céu noturno + nuvens.
 
 ## Inimigos normais: 
 
