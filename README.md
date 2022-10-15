@@ -111,6 +111,46 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 
 * Boss: rock agressivo.
 
+# Lista de sprites
 
+## Personagens
 
+* PlaceholderNova
+* PlaceholderVelha
+* Cachorro do mato
+* Preá
+* Saci
+* Sapo cururu
+* Escorpião
+* Mula Sem Cabeça
+* Curupira
 
+## Cenário
+
+* Chão plantação
+* Cana (1° plano)
+* Canas (2° plano)
+* Céu entardecer
+* Nuvens
+* Sol entardecer
+* Chão mata fechada
+* Cenário preto
+* Céu noite
+* Lua
+* Grama alta
+* Árvores
+* Galhos
+* Buraco
+
+## Objetos
+
+* Foice
+* Furacão
+* Cana
+* Lança
+
+## Efeitos
+
+* Fogo
+* Predict teleport
+* Vento
