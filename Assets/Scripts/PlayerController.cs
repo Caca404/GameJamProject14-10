@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Save save;
+    private SaveManager saveManager = new SaveManager();
     public float speed;
     private float moveInput;
     private bool IsGrounded;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        save = saveManager.LoadGame();
         rb = GetComponent<Rigidbody2D>();
     }
 
