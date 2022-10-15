@@ -49,8 +49,15 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 ## Cenário
 
 * Mata fechada;
-* Horário: noite;
-* Inimigos normais: cururu, escorpião.
+* Horário: noite.
+* 1° Plano: chão
+* 2° Plano:
+* 3° Plano: 
+
+## Inimigos normais: 
+
+* Cururu
+* Escorpião.
 
 ## Boss
 
@@ -75,7 +82,10 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 
 * Vazio;
 * Horário: indeterminado, breu total;
-* Inimigos normais: nenhum.
+
+## Inimigos normais 
+
+* Nenhum.
 
 ## Boss
 
