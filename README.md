@@ -21,25 +21,78 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 
 # Fase 1
 
-Cenário: canavial.
+## Cenário:
 
-Inimigos normais: cachorro do mato, preá.
+* Canavial comum;
+* Horário: entardecer;
+* Inimigos normais: cachorro do mato, preá.
 
-## Boss final
+## Boss
 
 ### Saci
 
-* Ataques: furação e arremessar cana (pelo furacão);
-* Movimentação: esqueda e direita por meio do furacão;
+* Ataques: furação, arremessar cana (pelo furacão) e slow jogador (arremessando ou cana ou furacão);
+* Movimentação: esqueda e direita por meio do furacão.
 
+### Arena
 
+* Canavial comum;
+* Região plana.
 
-Música: 
-* Animada (área pré-boss) com base no forró\sertanejo;
-* (boss)
+## Música: 
+
+* Pré-boss: animada com base no forró\sertanejo;
+* Agressiva (boss).
 
 # Fase 2
 
+## Cenário
+
+* Mata fechada;
+* Horário: noite;
+* Inimigos normais: cururu, escorpião.
+
+## Boss
+
+### Mula Sem Cabeça
+
+* Ataques: investida (charge) esqueda e direita e carga de fogo (horizontal ou vetical);
+* Movimentação: esqueda e direita por meio do galope.
+
+### Arena
+
+* Mata fechada mais escura;
+* Região plana + 3 plataformas.
+
+## Música
+
+* Pré-boss: misteriosa com harpa + algum instrumento de fundo.
+* Boss: rock agressivo.
+
 # Fase 3
+
+## Cenário
+
+* Vazio;
+* Horário: indeterminado, breu total;
+* Inimigos normais: nenhum.
+
+## Boss
+
+### Curupira
+
+* Ataques: arremesso de lança, ataque melee (porrada);
+* Movimentação: asquerda e direita andando / teleporte.
+
+### Arena
+
+* Vazio (preto);
+* Região plana com 2 buracos no chão (cair causa a morte) e 5 ou 6 plataformas com buracos no fundo (curupira se esconde).
+
+## Música
+
+* Boss: rock agressivo.
+
+
 
 
