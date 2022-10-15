@@ -51,8 +51,8 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 * Mata fechada;
 * Horário: noite.
 * 1° Plano: chão
-* 2° Plano:
-* 3° Plano: 
+* 2° Plano: canas
+* 3° Plano: céu + sol entardecer
 
 ## Inimigos normais: 
 
