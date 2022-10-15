@@ -56,7 +56,7 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 
 ### Mula Sem Cabeça
 
-* Ataques: investida (charge) esqueda e direita e carga de fogo (horizontal ou vetical);
+* Ataques: investida (charge) esqueda e direita e carga de fogo (horizontal ou vertical);
 * Movimentação: esqueda e direita por meio do galope.
 
 ### Arena
@@ -83,6 +83,10 @@ No caminho, ela irá enfrentar inimigos baseados nas histórias que sua mãe con
 
 * Ataques: arremesso de lança, ataque melee (porrada);
 * Movimentação: asquerda e direita andando / teleporte.
+
+### Mecânica
+
+* O curupira se teleporta entre as plataformas (seguindo personagem) e dá uma indicação em algum dos buracos de onde ele vai atacar 
 
 ### Arena
 
