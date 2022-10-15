@@ -32,7 +32,7 @@ public class SaciController : MonoBehaviour
 
         if(lookDirection.x > 0) 
             transform.eulerAngles = new Vector3(0, 0, 0);
-        else if(moveInput < 0)
+        else if(lookDirection.x < 0)
             transform.eulerAngles = new Vector3(0,180,0);
 
         if(intervalAtacks > 0){
