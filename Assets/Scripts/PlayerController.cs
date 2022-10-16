@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public Save save;
     private SaveManager saveManager = new SaveManager();
+
+    public int maxHealth = 100;
+    public int health { get { return currentHealth; }}
+    int currentHealth;
+
+
     public float speed;
     private float moveInput;
     private bool IsGrounded;
@@ -27,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         save = saveManager.LoadGame();
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -48,14 +55,14 @@ public class PlayerController : MonoBehaviour
                 isInvincible = false;
         }
 
-        if(IsGrounded == true && (Input.GetKey(KeyCode.Space) || Input.GetKey("w")))
+        if(IsGrounded == true && (Input.GetKey(KeyCode.Space) || Input.GetKey("w"))  && !isInvincible)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
         }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey("w")) && isJumping == true)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey("w")) && !isInvincible && isJumping == true)
         {
             if(jumpTimeCounter > 0)
             {
@@ -68,7 +75,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp("w")))
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp("w")) && !isInvincible)
         {
             isJumping = false;
         }
@@ -84,17 +91,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void TakeDamage(){
-        if (isInvincible)
-            return;
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+                return;
+            
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
         
-        isInvincible = true;
-        invincibleTimer = timeInvincible;
-    }
-
-    public void TakeDamageAirAtack(){
-        this.TakeDamage();
-        
-
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
