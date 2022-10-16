@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public int health { get { return currentHealth; }}
     int currentHealth;
 
-
     public float speed;
     private float moveInput;
     private bool IsGrounded;
@@ -29,11 +28,16 @@ public class PlayerController : MonoBehaviour
     private float invincibleTimer;
     private float timeInvincible = 1f;
 
+    private bool isAtacking = false;
+    private float atackingTimer = 1f;
+    private GameObject atackArea = default;
+
     void Start()
     {
         save = saveManager.LoadGame();
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        atackArea = transform.GetChild(1).gameObject;
     }
 
     void Update()
@@ -54,6 +58,32 @@ public class PlayerController : MonoBehaviour
             if (invincibleTimer < 0)
                 isInvincible = false;
         }
+        else {
+            if(isAtacking){
+                atackingTimer -= Time.deltaTime;
+                if(atackingTimer <= 0){
+                    atackingTimer = 1f;
+                    isAtacking = false;
+                    atackArea.SetActive(isAtacking);
+                }
+            }
+            else{
+                if (Input.GetMouseButtonDown(0)){
+                    isAtacking = true;
+                    atackArea.SetActive(isAtacking);
+                }
+            }
+        }
+        
+
+
+        // if(Input.GetKey("s")){
+        //     Collider2D colliderPlayer = GetComponent<Collider2D>();
+
+        //     // colliderPlayer.Size = 
+
+        // }
+
 
         if(IsGrounded == true && (Input.GetKey(KeyCode.Space) || Input.GetKey("w"))  && !isInvincible)
         {

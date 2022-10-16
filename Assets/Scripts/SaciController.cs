@@ -15,42 +15,51 @@ public class SaciController : MonoBehaviour
         "furacao",
         "buraco_minhoca"
     };
-    private Vector2 lookDirection = new Vector2(1,0);
+    private Vector2 lookDirection = new Vector2(-1,0);
     private float intervalAtacks;
     private Random randNum = new Random();
     private string mode = "normal";
     private int projeteis = 0;
-    public float rotationSpeed = 1.5f; 
+    public float rotationSpeed = 1.5f;
+    Vector3 currentVelocity;
+    public float lookAheadReturnSpeed = 0.5f;
+
+    public int maxHealth = 200;
+    public int health { get { return currentHealth; }}
+    int currentHealth;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         intervalAtacks = randNum.Next(2, 5);
+        currentHealth = maxHealth;
     }
 
     void Update(){
 
         if(lookDirection.x > 0) 
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
         else if(lookDirection.x < 0)
-            transform.eulerAngles = new Vector3(0,180,0);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x,180,transform.eulerAngles.z);
 
         if(intervalAtacks > 0){
             intervalAtacks -= Time.deltaTime;
         }
         else{
-            if(mode != "furacao"){
-
-                mode = RandomAtack();
-                if(mode != "furacao") intervalAtacks = randNum.Next(2, 5);
-            }
-            else{
+            if(mode == "furacao"){
                 if(projeteis >= 5){
                     CancelInvoke("lancarProjetil");
                     projeteis = 0;
                     mode = "normal";
                     intervalAtacks = randNum.Next(3, 5);
                     transform.localScale = new Vector2(1,1);
+                }
+            }
+            else{
+                if(mode == "normal"){
+                    mode = RandomAtack();
+                    if(mode != "furacao" && mode != "buraco_minhoca") intervalAtacks = randNum.Next(2, 5);
                 }
             }
         }
@@ -71,7 +80,7 @@ public class SaciController : MonoBehaviour
                 break;
         }
 
-        return defaultAtacks[atack]; 
+        return defaultAtacks[atack];
     }
 
     public void furacaoAtack(){
@@ -79,7 +88,7 @@ public class SaciController : MonoBehaviour
         InvokeRepeating("lancarProjetil", 2f, 1f);
     }
 
-    private void lancarProjetil ()
+    private void lancarProjetil()
     {
         GameObject projectileObject = Instantiate(projectileCana, rb.position + Vector2.up, Quaternion.identity);
         CanaController projectile = projectileObject.GetComponent<CanaController>();
@@ -89,7 +98,12 @@ public class SaciController : MonoBehaviour
 
     public void buracoMinhocaAtack(){
         // girar 90 graus
-        transform.eulerAngles = new Vector3(90,0,0) * Time.deltaTime * rotationSpeed;
-        // transform.Rotate(new Vector3(90, 0, 0), Space.World);
+        transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+    }
+
+    public void TakeDamage(int damage){
+
+        currentHealth = Mathf.Clamp(currentHealth + damage, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
