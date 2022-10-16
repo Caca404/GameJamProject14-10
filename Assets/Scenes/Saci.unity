@@ -388,7 +388,7 @@ Rigidbody2D:
   m_LinearDrag: 2
   m_AngularDrag: 0
   m_GravityScale: 9.8
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: df28f656e44bfa54c99bad6fdd33ff02, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
@@ -1411,6 +1411,34 @@ PrefabInstance:
       propertyPath: m_text
       value: Sair
       objectReference: {fileID: 0}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1498069782}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Sair
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Canva, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692594046536885684, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5692594046536885686, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
       propertyPath: m_Name
       value: Sair
@@ -1485,7 +1513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5692594046536885687, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 39.4
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 5692594046536885687, guid: fad35ef3a1927624e89e58450f61625c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
