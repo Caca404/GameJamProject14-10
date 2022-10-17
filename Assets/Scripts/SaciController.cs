@@ -12,8 +12,8 @@ public class SaciController : MonoBehaviour
         new Vector2(-9f, -0.9f)
     };
     private string[] defaultAtacks = {
-        "furacao",
-        "buraco_minhoca"
+        "furacao"
+        // ,"buraco_minhoca"
     };
     private Vector2 lookDirection = new Vector2(-1,0);
     private float intervalAtacks;
@@ -23,17 +23,23 @@ public class SaciController : MonoBehaviour
     public float rotationSpeed = 1.5f;
     Vector3 currentVelocity;
     public float lookAheadReturnSpeed = 0.5f;
+    public Vector3 normalSize;
 
     public int maxHealth = 200;
     public int health { get { return currentHealth; }}
     int currentHealth;
 
+    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         intervalAtacks = randNum.Next(2, 5);
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
+        animator.SetFloat("Move X", -1);
+        animator.SetFloat("Move Y", 0);
+        normalSize = transform.position;
     }
 
     void Update(){
@@ -41,7 +47,7 @@ public class SaciController : MonoBehaviour
         if(lookDirection.x > 0) 
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
         else if(lookDirection.x < 0)
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x,180,transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z);
 
         if(intervalAtacks > 0){
             intervalAtacks -= Time.deltaTime;
@@ -53,7 +59,6 @@ public class SaciController : MonoBehaviour
                     projeteis = 0;
                     mode = "normal";
                     intervalAtacks = randNum.Next(3, 5);
-                    transform.localScale = new Vector2(1,1);
                 }
             }
             else{
@@ -72,9 +77,9 @@ public class SaciController : MonoBehaviour
             case "furacao":
                 furacaoAtack();
                 break;
-            case "buraco_minhoca":
-                buracoMinhocaAtack();
-                break;
+            // case "buraco_minhoca":
+            //     buracoMinhocaAtack();
+            //     break;
             default:
                 Debug.Log('a');
                 break;
@@ -84,13 +89,12 @@ public class SaciController : MonoBehaviour
     }
 
     public void furacaoAtack(){
-        transform.localScale = new Vector2(2,2);
         InvokeRepeating("lancarProjetil", 2f, 1f);
     }
 
     private void lancarProjetil()
     {
-        GameObject projectileObject = Instantiate(projectileCana, rb.position + Vector2.up, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectileCana, (rb.position) + (Vector2.up*randNum.Next(0, 2)), Quaternion.identity);
         CanaController projectile = projectileObject.GetComponent<CanaController>();
         projectile.Launch(lookDirection, 350f);
         projeteis++;

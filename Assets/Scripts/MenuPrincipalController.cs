@@ -11,6 +11,7 @@ public class MenuPrincipalController : MonoBehaviour
     private SaveManager saveManager = new SaveManager();
     public GameObject menuPrincipal;
     public GameObject menuConfig;
+    public GameObject musica;
 
     void Start()
     {
@@ -73,6 +74,8 @@ public class MenuPrincipalController : MonoBehaviour
         }
 
         saveManager.SaveGame(save);
+
+        musica.GetComponent<AudioSource>().volume = save.music/100;
     }
 
     public void Quit()

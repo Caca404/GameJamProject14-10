@@ -32,25 +32,38 @@ public class PlayerController : MonoBehaviour
     private float atackingTimer = 1f;
     private GameObject atackArea = default;
 
+    Animator animator;
+    Vector2 lookDirection = new Vector2(1,0);
+
     void Start()
     {
         save = saveManager.LoadGame();
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         atackArea = transform.GetChild(1).gameObject;
+        animator = GetComponent<Animator>();
+        animator.SetFloat("Move X", 0);
+        animator.SetFloat("Move Y", 0);
     }
 
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector2 move = new Vector2(horizontal, vertical);
+        
+        if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            lookDirection.Set(move.x, move.y);
+            lookDirection.Normalize();
+            animator.SetFloat("Move X", lookDirection.x);
+        }
+        else{
+            lookDirection.Set(move.x, move.y);
+            animator.SetFloat("Move X", lookDirection.x);
+        }
 
-        if(moveInput > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else if(moveInput < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+        
 
         if (isInvincible)
         {
@@ -70,6 +83,17 @@ public class PlayerController : MonoBehaviour
             else{
                 if (Input.GetMouseButtonDown(0)){
                     isAtacking = true;
+                    // PolygonCollider2D polygono = atackArea.GetComponent<PolygonCollider2D>();
+                    // for (int i = 0; i < polygono.points.Length; i++)
+                    // {
+                    //     Debug.Log(lookDirection.x < 0);
+                    //     if(lookDirection.x < 0){
+                    //         polygono.points[i] = new Vector2(polygono.points[i].x * -1, polygono.points[i].y);
+                    //         Debug.Log(polygono.points[i]);
+                    //     }
+                    //     else
+                    //         polygono.points[i] = new Vector2(Mathf.Abs(polygono.points[i].x), polygono.points[i].y);
+                    // }
                     atackArea.SetActive(isAtacking);
                 }
             }
